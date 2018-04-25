@@ -12,20 +12,20 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
-    - openblas
+    - openblas 0.2.20|0.2.20.*
     - gcc
     - fftw
-    - hdf5
+    - hdf5 1.10.1
     - libctl >=4.0.0
   run:
-    - openblas
+    - openblas 0.2.20|0.2.20.*
     - fftw
-    - hdf5
+    - hdf5 1.10.1
     - libgfortran
     - libgcc
     - libctl >=4.0.0
