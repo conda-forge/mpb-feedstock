@@ -17,15 +17,15 @@ build:
 
 requirements:
   build:
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - gcc
     - fftw
-    - hdf5 1.10.1
+    - hdf5
     - libctl >=4.0.0
   run:
-    - openblas 0.2.20|0.2.20.*
+    - {{ pin_compatible('openblas', max_pin='x.x.x') }}
+    - {{ pin_compatible('hdf5', max_pin='x.x.x') }}
     - fftw
-    - hdf5 1.10.1
     - libgfortran
     - libgcc
     - libctl >=4.0.0
