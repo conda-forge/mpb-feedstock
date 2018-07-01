@@ -1,3 +1,7 @@
+c_compiler:
+- toolchain_c
+fortran_compiler:
+- toolchain_fort
 hdf5:
 - 1.10.2
 openblas:

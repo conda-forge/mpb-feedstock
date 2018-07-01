@@ -1,5 +1,9 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+c_compiler:
+- toolchain_c
+fortran_compiler:
+- toolchain_fort
 hdf5:
 - 1.10.2
 macos_machine:
