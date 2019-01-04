@@ -12,22 +12,22 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1000
   skip: true  # [win]
 
 requirements:
   build:
+    - {{ pin_compatible('openblas', max_pin='x.x.x') }}
+    - {{ pin_compatible('hdf5', max_pin='x.x.x') }}
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+  host:
     - openblas
-    - gcc
     - fftw
     - hdf5
     - libctl >=4.0.0
   run:
-    - {{ pin_compatible('openblas', max_pin='x.x.x') }}
-    - {{ pin_compatible('hdf5', max_pin='x.x.x') }}
     - fftw
-    - libgfortran
-    - libgcc
     - libctl >=4.0.0
 
 test:
