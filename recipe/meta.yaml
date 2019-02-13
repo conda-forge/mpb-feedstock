@@ -1,6 +1,6 @@
 {% set name = "mpb" %}
-{% set version = "1.7.0" %}
-{% set sha256 = "222dcdcac3ba4d5659792e135fb6d4c9062ad409c506defe4a3be891b314782c" %}
+{% set version = "1.8.0" %}
+{% set sha256 = "2d2fa2a7b656057e8902665aa3f05e82a603f36bb5db17bc914663d3da59f9c9" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
+  number: 0
   skip: true  # [win]
 
 requirements:
