@@ -25,10 +25,10 @@ requirements:
     - openblas
     - fftw
     - hdf5
-    - libctl >=4.0.0
+    - libctl >=4.2.0
   run:
     - fftw
-    - libctl >=4.0.0
+    - libctl >=4.2.0
 
 test:
   commands:
