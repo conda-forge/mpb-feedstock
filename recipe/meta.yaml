@@ -17,13 +17,12 @@ build:
 
 requirements:
   build:
-    - {{ pin_compatible('openblas', max_pin='x.x.x') }}
-    - {{ pin_compatible('hdf5', max_pin='x.x.x') }}
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
   host:
     - libblas
     - libcblas
+    - liblapack
     - fftw
     - hdf5
     - libctl >=4.2.0
