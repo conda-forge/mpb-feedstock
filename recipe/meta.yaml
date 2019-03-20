@@ -41,7 +41,7 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
   host:
-    {{ mpi }}  # [mpi != 'nompi']
+    - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - libcblas
     - liblapack
