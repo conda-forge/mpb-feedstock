@@ -1,6 +1,13 @@
 {% set name = "mpb" %}
 {% set version = "1.8.0" %}
 {% set sha256 = "2d2fa2a7b656057e8902665aa3f05e82a603f36bb5db17bc914663d3da59f9c9" %}
+{% set buildnumber = 2 %}
+# recipe-lint fails if mpi is undefined
+{% set mpi = mpi or 'nompi' %}
+{% if mpi == "nompi" %}
+# prioritize nompi via build number
+{% set buildnumber = buildnumber + 100 %}
+{% endif %}
 
 package:
   name: {{ name }}
@@ -8,23 +15,38 @@ package:
 
 source:
   fn: {{ name }}-{{version}}.tar.gz
-  url: https://github.com/stevengj/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/NanoComp/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: {{ buildnumber }}
   skip: true  # [win]
+  {% if mpi != "nompi" %}
+  {% set mpi_prefix = "mpi_" + mpi %}
+  {% else %}
+  {% set mpi_prefix = "nompi" %}
+  {% endif %}
+  # add build string so packages can depend on
+  # mpi or nompi variants
+  # dependencies:
+  # `mpb * mpi_mpich_*` for mpich
+  # `mpb * mpi_*` for any mpi
+  # `mpb * nompi_*` for no mpi
+  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ buildnumber }}"
+  run_exports:
+    - {{ name }} * {{ mpi_prefix }}_*
 
 requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
   host:
+    {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - libcblas
     - liblapack
     - fftw
-    - hdf5
+    - hdf5 * {{ mpi_prefix }}_*
     - libctl >=4.2.0
   run:
     - fftw
