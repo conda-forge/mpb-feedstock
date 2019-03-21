@@ -10,8 +10,11 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      linux_:
-        CONFIG: linux_
+      linux_mpimpich:
+        CONFIG: linux_mpimpich
+        UPLOAD_PACKAGES: True
+      linux_mpinompi:
+        CONFIG: linux_mpinompi
         UPLOAD_PACKAGES: True
   steps:
   - script: |
