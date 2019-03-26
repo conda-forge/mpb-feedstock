@@ -1,7 +1,7 @@
 About mpb
 =========
 
-Home: http:/github.com/stevengj/mpb
+Home: http:/github.com/NanoComp/mpb
 
 Package license: GPL-2.0
 
