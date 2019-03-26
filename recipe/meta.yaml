@@ -1,7 +1,7 @@
 {% set name = "mpb" %}
 {% set version = "1.8.0" %}
 {% set sha256 = "2d2fa2a7b656057e8902665aa3f05e82a603f36bb5db17bc914663d3da59f9c9" %}
-{% set buildnumber = 3 %}
+{% set buildnumber = 4 %}
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
 {% if mpi == "nompi" %}
@@ -58,12 +58,12 @@ test:
     - test -f ${PREFIX}/lib/libmpb${SHLIB_EXT}
 
 about:
-  home: http:/github.com/stevengj/mpb
+  home: http:/github.com/NanoComp/mpb
   license: GPL-2.0
   license_file: COPYING
   summary: MIT Photonic-Bands - computation of photonic band structures in periodic media
   doc_url: http://mpb.readthedocs.io
-  dev_url: https://github.com/stevengj/mpb
+  dev_url: https://github.com/NanoComp/mpb
 
 extra:
   recipe-maintainers:
