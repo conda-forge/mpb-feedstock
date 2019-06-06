@@ -1,6 +1,6 @@
 {% set name = "mpb" %}
-{% set version = "1.8.0" %}
-{% set sha256 = "2d2fa2a7b656057e8902665aa3f05e82a603f36bb5db17bc914663d3da59f9c9" %}
+{% set version = "1.9.0" %}
+{% set sha256 = "c7b91d82bd8e63ea029d58cbf6d73904a99bc20436badf6aac30fc4a90850883" %}
 {% set buildnumber = 5 %}
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
