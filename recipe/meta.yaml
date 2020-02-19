@@ -47,6 +47,7 @@ requirements:
     - liblapack
     - fftw
     - hdf5 * {{ mpi_prefix }}_*
+    - hdf5
     - libctl >=4.2.0
   run:
     - {{ mpi }}  # [mpi != 'nompi']
