@@ -1,7 +1,7 @@
 {% set name = "mpb" %}
 {% set version = "1.9.0" %}
 {% set sha256 = "c7b91d82bd8e63ea029d58cbf6d73904a99bc20436badf6aac30fc4a90850883" %}
-{% set buildnumber = 5 %}
+{% set buildnumber = 6 %}
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
 {% if mpi == "nompi" %}
@@ -47,6 +47,7 @@ requirements:
     - liblapack
     - fftw
     - hdf5 * {{ mpi_prefix }}_*
+    - hdf5
     - libctl >=4.2.0
   run:
     - {{ mpi }}  # [mpi != 'nompi']
