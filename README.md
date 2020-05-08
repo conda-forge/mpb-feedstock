@@ -3,7 +3,7 @@ About mpb
 
 Home: http:/github.com/NanoComp/mpb
 
-Package license: GPL-2.0
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD 3-Clause
 
