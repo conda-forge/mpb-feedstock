@@ -36,11 +36,6 @@ build:
   string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ buildnumber }}"
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
-
-# Explicitly enable linux_aarch64 and linux_ppc64le builds
-provider:
-  linux_ppc64le: default
-  linux_aarch64: default
   
 requirements:
   build:
