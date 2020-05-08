@@ -37,6 +37,9 @@ build:
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
 
+# Enable linux_aarch64 and linux_ppc64le builds
+provider: {linux_aarch64: default, linux_ppc64le: default}
+
 requirements:
   build:
     - {{ compiler('fortran') }}
