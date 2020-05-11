@@ -36,11 +36,12 @@ build:
   string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ buildnumber }}"
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
-  
+
 requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - make
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
