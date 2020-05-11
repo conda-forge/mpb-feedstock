@@ -1,7 +1,7 @@
 {% set name = "mpb" %}
 {% set version = "1.10.0" %}
 {% set sha256 = "3cd3366aca40eacb8fc01476adfd9e376fd0f81ef6109cef4f85b15218a3514f" %}
-{% set buildnumber = 7 %}
+{% set buildnumber = 8 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -12,10 +12,10 @@
 
 package:
   name: {{ name }}
-  version: {{version}}
+  version: {{ version }}
 
 source:
-  fn: {{ name }}-{{version}}.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/NanoComp/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
@@ -41,6 +41,7 @@ requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - make
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
@@ -59,11 +60,11 @@ test:
     - test -f ${PREFIX}/lib/libmpb${SHLIB_EXT}
 
 about:
-  home: http:/github.com/NanoComp/mpb
-  license: GPL-2.0
+  home: https://github.com/NanoComp/mpb
+  license: GPL-2.0-or-later
   license_file: COPYING
   summary: MIT Photonic-Bands - computation of photonic band structures in periodic media
-  doc_url: http://mpb.readthedocs.io
+  doc_url: https://mpb.readthedocs.io
   dev_url: https://github.com/NanoComp/mpb
 
 extra:

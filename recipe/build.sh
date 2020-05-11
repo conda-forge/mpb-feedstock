@@ -10,7 +10,7 @@ if [[ ! -z "$mpi" && "$mpi" != "nompi" ]]; then
     export CXX=mpicxx
 fi
 
-./configure --prefix="${PREFIX}" --enable-shared --with-libctl=no --with-hermitian-eps
+./configure --prefix="${PREFIX}" --enable-shared --with-libctl=no --with-hermitian-eps --disable-dependency-tracking
 
 make
 make check
