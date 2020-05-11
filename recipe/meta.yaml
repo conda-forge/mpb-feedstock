@@ -12,10 +12,10 @@
 
 package:
   name: {{ name }}
-  version: {{version}}
+  version: {{ version }}
 
 source:
-  fn: {{ name }}-{{version}}.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/NanoComp/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
