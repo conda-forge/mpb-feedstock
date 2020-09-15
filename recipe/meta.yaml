@@ -55,7 +55,7 @@ requirements:
     - fftw
     - libctl >=4.5.0
     - zlib
-    - _openmp_mutex
+    - _openmp_mutex  # [linux]
 
 test:
   commands:
