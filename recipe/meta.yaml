@@ -42,6 +42,7 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - make
+
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
@@ -53,12 +54,11 @@ requirements:
     # and build pinning from {{ mpi_prefix }}
     - hdf5
     - hdf5 * {{ mpi_prefix }}_*
-    - libctl >=4.5.0
+
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - fftw
     - hdf5
-    - libctl >=4.5.0
     - zlib
     - _openmp_mutex  # [linux]
 
