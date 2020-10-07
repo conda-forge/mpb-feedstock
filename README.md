@@ -5,11 +5,13 @@ Home: https://github.com/NanoComp/mpb
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpb-feedstock/blob/master/LICENSE.txt)
 
 Summary: MIT Photonic-Bands - computation of photonic band structures in periodic media
 
+Development: https://github.com/NanoComp/mpb
 
+Documentation: https://mpb.readthedocs.io
 
 Current build status
 ====================
