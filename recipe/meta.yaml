@@ -48,12 +48,16 @@ requirements:
     - libcblas
     - liblapack
     - fftw
-    - hdf5 1.10.5
+    # We need to list hdf5 twice to get version pinning from
+    # conda_build_config.yaml, (which falls back to the one from conda-forge,)
+    # and build pinning from {{ mpi_prefix }}
+    - hdf5
+    - hdf5 * {{ mpi_prefix }}_*
     - libctl >=4.5.0
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - fftw
-    - hdf5 1.10.5
+    - hdf5
     - libctl >=4.5.0
     - zlib
     - _openmp_mutex  # [linux]
