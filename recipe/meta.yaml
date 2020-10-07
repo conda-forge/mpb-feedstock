@@ -1,7 +1,7 @@
 {% set name = "mpb" %}
 {% set version = "1.11.0" %}
 {% set sha256 = "5852a0a40cd035ffcbab9cfdab759be731bfe1d9c8cc491120acbac26731d4a0" %}
-{% set buildnumber = 11 %}
+{% set buildnumber = 12 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -42,19 +42,23 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - make
+
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - libcblas
     - liblapack
     - fftw
-    - hdf5 1.10.5
-    - libctl >=4.5.0
+    # We need to list hdf5 twice to get version pinning from
+    # conda_build_config.yaml, (which falls back to the one from conda-forge,)
+    # and build pinning from {{ mpi_prefix }}
+    - hdf5
+    - hdf5 * {{ mpi_prefix }}_*
+
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - fftw
-    - hdf5 1.10.5
-    - libctl >=4.5.0
+    - hdf5
     - zlib
     - _openmp_mutex  # [linux]
 
