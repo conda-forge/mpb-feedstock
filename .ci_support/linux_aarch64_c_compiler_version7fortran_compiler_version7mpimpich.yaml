@@ -13,7 +13,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- condaforge/linux-anvil-aarch64
+- quay.io/condaforge/linux-anvil-aarch64
 fftw:
 - '3'
 fortran_compiler:
@@ -29,7 +29,7 @@ libcblas:
 liblapack:
 - 3.8 *netlib
 mpi:
-- nompi
+- mpich
 pin_run_as_build:
   fftw:
     max_pin: x
