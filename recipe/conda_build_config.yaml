@@ -1,6 +1,3 @@
 mpi:
     - nompi
     - mpich
-
-pin_run_as_build:
-    mpich: x.x
