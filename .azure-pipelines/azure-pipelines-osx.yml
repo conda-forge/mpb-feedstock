@@ -5,14 +5,20 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-12
+    vmImage: macOS-13
   strategy:
     matrix:
-      osx_64_mpimpich:
-        CONFIG: osx_64_mpimpich
+      osx_64_hdf51.14.3mpimpich:
+        CONFIG: osx_64_hdf51.14.3mpimpich
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompi:
-        CONFIG: osx_64_mpinompi
+      osx_64_hdf51.14.3mpinompi:
+        CONFIG: osx_64_hdf51.14.3mpinompi
+        UPLOAD_PACKAGES: 'True'
+      osx_64_hdf51.14.4mpimpich:
+        CONFIG: osx_64_hdf51.14.4mpimpich
+        UPLOAD_PACKAGES: 'True'
+      osx_64_hdf51.14.4mpinompi:
+        CONFIG: osx_64_hdf51.14.4mpinompi
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}
