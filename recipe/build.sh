@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* .
 
 if [[ ! -z "$mpi" && "$mpi" != "nompi" ]]; then
     # We don't actually compile parallel MPB here (--enable-parallel) because
@@ -13,7 +15,9 @@ fi
 ./configure --prefix="${PREFIX}" --enable-shared --with-libctl=no --with-hermitian-eps --disable-dependency-tracking
 
 make
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make check
+fi
 make install
 
 rm ${PREFIX}/lib/libmpb.a
