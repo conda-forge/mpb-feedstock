@@ -32,7 +32,7 @@ build:
   # `mpb * nompi_*` for no mpi
   string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ buildnumber }}
   run_exports:
-    - {{ name }} * {{ mpi_prefix }}_*
+    - mpb * {{ mpi_prefix }}_*
 
 requirements:
   build:
