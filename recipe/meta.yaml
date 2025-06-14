@@ -39,6 +39,7 @@ build:
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
