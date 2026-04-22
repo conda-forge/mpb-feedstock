@@ -5,21 +5,41 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-13
+    vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_mpimpich:
-        CONFIG: osx_64_mpimpich
+      osx_64_hdf51.14.6mpimpich:
+        CONFIG: osx_64_hdf51.14.6mpimpich
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompi:
-        CONFIG: osx_64_mpinompi
+        VMIMAGE: macOS-15
+      osx_64_hdf51.14.6mpinompi:
+        CONFIG: osx_64_hdf51.14.6mpinompi
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_mpimpich:
-        CONFIG: osx_arm64_mpimpich
+        VMIMAGE: macOS-15
+      osx_64_hdf52mpimpich:
+        CONFIG: osx_64_hdf52mpimpich
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_mpinompi:
-        CONFIG: osx_arm64_mpinompi
+        VMIMAGE: macOS-15
+      osx_64_hdf52mpinompi:
+        CONFIG: osx_64_hdf52mpinompi
         UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_hdf51.14.6mpimpich:
+        CONFIG: osx_arm64_hdf51.14.6mpimpich
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_hdf51.14.6mpinompi:
+        CONFIG: osx_arm64_hdf51.14.6mpinompi
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_hdf52mpimpich:
+        CONFIG: osx_arm64_hdf52mpimpich
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_hdf52mpinompi:
+        CONFIG: osx_arm64_hdf52mpinompi
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
   timeoutInMinutes: 360
   variables: {}
 
